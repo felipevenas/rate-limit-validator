@@ -1,0 +1,2 @@
+# Dependências de Produção
+PySide6>=6.6.0

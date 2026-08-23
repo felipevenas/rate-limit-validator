@@ -1,0 +1,9 @@
+# Dependências de Desenvolvimento, Testes e Build
+-r requirements.txt
+
+# Testes e Qualidade
+pytest>=8.0.0
+pytest-cov>=4.1.0
+
+# Compilação e Empacotamento
+pyinstaller>=6.5.0
