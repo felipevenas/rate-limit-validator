@@ -97,12 +97,12 @@ class JanelaPrincipalQt(QMainWindow):
         # 4. Barra de Status Inferior com Alternador de Tema
         self.status_bar = self.statusBar()
         
-        self.lbl_status = QLabel("● Pronto para iniciar teste.")
+        self.lbl_status = QLabel("Pronto para iniciar teste.")
         self.lbl_status.setObjectName("lbl_status")
         self.lbl_status.setProperty("status_tipo", "padrao")
         self.status_bar.addWidget(self.lbl_status, stretch=1)
 
-        self.btn_tema = QPushButton("🌙 Tema Escuro")
+        self.btn_tema = QPushButton("Tema Escuro")
         self.btn_tema.setObjectName("btn_tema")
         self.btn_tema.clicked.connect(self._alternar_tema)
         self.status_bar.addPermanentWidget(self.btn_tema)
@@ -140,7 +140,7 @@ class JanelaPrincipalQt(QMainWindow):
         layout.addStretch()
 
         # Badge de Status Ativo
-        self.lbl_badge_header = QLabel("⚡ Pronto")
+        self.lbl_badge_header = QLabel("Pronto")
         self.lbl_badge_header.setObjectName("lbl_badge_status_header")
         layout.addWidget(self.lbl_badge_header)
 
@@ -156,17 +156,17 @@ class JanelaPrincipalQt(QMainWindow):
 
         menu_bandeja = QMenu(self)
 
-        acao_mostrar = menu_bandeja.addAction("🗔 Abrir / Restaurar Janela")
+        acao_mostrar = menu_bandeja.addAction("Abrir Janela")
         acao_mostrar.triggered.connect(self._restaurar_janela)
 
         menu_bandeja.addSeparator()
 
-        acao_tema = menu_bandeja.addAction("🌓 Alternar Tema")
+        acao_tema = menu_bandeja.addAction("Alternar Tema")
         acao_tema.triggered.connect(self._alternar_tema)
 
         menu_bandeja.addSeparator()
 
-        acao_sair = menu_bandeja.addAction("❌ Sair")
+        acao_sair = menu_bandeja.addAction("Sair")
         acao_sair.triggered.connect(self.close)
 
         self.tray_icon.setContextMenu(menu_bandeja)
@@ -199,13 +199,13 @@ class JanelaPrincipalQt(QMainWindow):
         self.lbl_status.style().polish(self.lbl_status)
 
         if tipo == "executando":
-            self.lbl_badge_header.setText("🔄 Testando API...")
+            self.lbl_badge_header.setText("Testando API...")
         elif tipo == "sucesso":
-            self.lbl_badge_header.setText("✔ Concluído")
+            self.lbl_badge_header.setText("Concluído")
         elif tipo in ("erro", "cancelado"):
-            self.lbl_badge_header.setText("⏹ Interrompido")
+            self.lbl_badge_header.setText("Interrompido")
         else:
-            self.lbl_badge_header.setText("⚡ Pronto")
+            self.lbl_badge_header.setText("Pronto")
 
     def _iniciar_teste(self, plano: PlanoTeste):
         self.painel_metricas.resetar(total_esperado=plano.total_requisicoes)
@@ -213,14 +213,14 @@ class JanelaPrincipalQt(QMainWindow):
         self.form_config.definir_estado_execucao(em_execucao=True)
 
         self._definir_status(
-            f"● Executando {plano.total_requisicoes} requisições (Concorrência: {plano.concorrencia} threads)...",
+            f"Executando {plano.total_requisicoes} requisições (Concorrência: {plano.concorrencia} threads)...",
             tipo="executando"
         )
 
         self.controlador.iniciar_teste(plano)
 
     def _cancelar_teste(self):
-        self._definir_status("● Solicitando cancelamento do teste...", tipo="cancelado")
+        self._definir_status("Solicitando cancelamento do teste...", tipo="cancelado")
         self.controlador.cancelar_teste()
 
     def _ao_receber_item(self, resultado: ResultadoRequisicao, metricas: ResumoMetricas):
@@ -233,13 +233,13 @@ class JanelaPrincipalQt(QMainWindow):
 
         if cancelado:
             self._definir_status(
-                f"● Teste cancelado pelo usuário! Processadas {metricas.total_enviadas} de {metricas.total_esperado} requisições.",
+                f"Teste cancelado pelo usuário. Processadas {metricas.total_enviadas} de {metricas.total_esperado} requisições.",
                 tipo="cancelado"
             )
             if hasattr(self, 'tray_icon') and self.tray_icon.isVisible():
                 self.tray_icon.showMessage(
                     "Validador de Rate Limit",
-                    f"Teste interrompido! {metricas.total_enviadas} requisições processadas.",
+                    f"Teste interrompido. {metricas.total_enviadas} requisições processadas.",
                     QSystemTrayIcon.Warning,
                     3000
                 )
@@ -250,13 +250,13 @@ class JanelaPrincipalQt(QMainWindow):
             )
         else:
             self._definir_status(
-                f"● Teste concluído com sucesso! {metricas.total_enviadas} requisições em {metricas.tempo_total_segundos:.2f}s ({metricas.requisicoes_por_segundo:.1f} req/s).",
+                f"Teste concluído com sucesso. {metricas.total_enviadas} requisições em {metricas.tempo_total_segundos:.2f}s ({metricas.requisicoes_por_segundo:.1f} req/s).",
                 tipo="sucesso"
             )
             if hasattr(self, 'tray_icon') and self.tray_icon.isVisible():
                 self.tray_icon.showMessage(
                     "Validador de Rate Limit",
-                    f"Teste concluído! {metricas.total_enviadas} requisições processadas ({metricas.bloqueios_429} bloqueios 429).",
+                    f"Teste concluído. {metricas.total_enviadas} requisições processadas ({metricas.bloqueios_429} bloqueios 429).",
                     QSystemTrayIcon.Information,
                     3500
                 )
@@ -279,7 +279,7 @@ class JanelaPrincipalQt(QMainWindow):
 
     def _ao_ocorrer_erro(self, mensagem_erro: str):
         self.form_config.definir_estado_execucao(em_execucao=False)
-        self._definir_status(f"● Erro durante o teste: {mensagem_erro}", tipo="erro")
+        self._definir_status(f"Erro durante o teste: {mensagem_erro}", tipo="erro")
         if hasattr(self, 'tray_icon') and self.tray_icon.isVisible():
             self.tray_icon.showMessage(
                 "Validador de Rate Limit - Erro",
@@ -298,11 +298,11 @@ class JanelaPrincipalQt(QMainWindow):
         if self._modo_escuro:
             if app:
                 app.setStyleSheet(TEMA_DARK)
-            self.btn_tema.setText("🌙 Tema Escuro")
+            self.btn_tema.setText("Tema Escuro")
         else:
             if app:
                 app.setStyleSheet(TEMA_LIGHT)
-            self.btn_tema.setText("☀️ Tema Claro")
+            self.btn_tema.setText("Tema Claro")
 
         self.tabela_historico.definir_modo_escuro(self._modo_escuro)
 

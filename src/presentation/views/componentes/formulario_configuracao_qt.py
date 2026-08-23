@@ -220,12 +220,12 @@ class FormularioConfiguracaoQt(QGroupBox):
         layout_botoes.setContentsMargins(0, 2, 0, 0)
         layout_botoes.addStretch()
 
-        self.btn_iniciar = QPushButton("▶  Iniciar Teste")
+        self.btn_iniciar = QPushButton("Iniciar Teste")
         self.btn_iniciar.setObjectName("btn_iniciar")
         self.btn_iniciar.clicked.connect(self._disparar_inicio)
         layout_botoes.addWidget(self.btn_iniciar)
 
-        self.btn_cancelar = QPushButton("⏹  Interromper")
+        self.btn_cancelar = QPushButton("Interromper")
         self.btn_cancelar.setObjectName("btn_cancelar")
         self.btn_cancelar.setEnabled(False)
         self.btn_cancelar.clicked.connect(self.solicitar_cancelamento.emit)

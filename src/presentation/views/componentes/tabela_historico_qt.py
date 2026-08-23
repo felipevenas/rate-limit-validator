@@ -30,7 +30,7 @@ class TabelaHistoricoQt(QGroupBox):
         layout_filtros = QHBoxLayout()
         layout_filtros.setSpacing(10)
 
-        lbl_busca = QLabel("🔍")
+        lbl_busca = QLabel("Buscar:")
         lbl_busca.setObjectName("lbl_icone_busca")
         self.entry_busca = QLineEdit()
         self.entry_busca.setPlaceholderText("Filtrar por ID, Status, Detalhes...")
@@ -106,11 +106,11 @@ class TabelaHistoricoQt(QGroupBox):
 
         layout_acoes.addStretch()
 
-        self.btn_exportar = QPushButton("💾  Exportar Relatório (CSV)")
+        self.btn_exportar = QPushButton("Exportar Relatório (CSV)")
         self.btn_exportar.clicked.connect(self._disparar_exportacao)
         layout_acoes.addWidget(self.btn_exportar)
 
-        self.btn_limpar = QPushButton("🗑  Limpar")
+        self.btn_limpar = QPushButton("Limpar")
         self.btn_limpar.clicked.connect(self.limpar)
         layout_acoes.addWidget(self.btn_limpar)
 
