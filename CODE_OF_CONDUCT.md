@@ -1,31 +1,58 @@
-# Código de Conduta do Contribuinte 📜
+# Code of Conduct
 
-## Nosso Compromisso
+## Our pledge
 
-Com o intuito de promover um ambiente aberto e acolhedor, nós, como colaboradores e mantenedores, nos comprometemos a tornar a participação em nosso projeto e comunidade uma experiência livre de assédio para todos, independentemente de idade, tamanho corporal, deficiência visível ou invisível, etnia, características sexuais, identidade e expressão de gênero, nível de experiência, educação, status socioeconômico, nacionalidade, aparência pessoal, raça, religião ou identidade e orientação sexual.
+We as members, contributors, and maintainers pledge to make participation in the **Rate Limit Validator** community a harassment-free experience for everyone, regardless of age, body size, visible or invisible disability, ethnicity, sex characteristics, gender identity and expression, level of experience, education, socio-economic status, nationality, personal appearance, race, religion, or sexual identity and orientation.
 
-## Nossos Padrões
+We pledge to act and interact in ways that contribute to an open, welcoming, diverse, inclusive, and healthy community.
 
-Exemplos de comportamentos que contribuem para criar um ambiente positivo:
+## Our standards
 
-- Usar linguagem acolhedora e inclusiva.
-- Ter respeito em relação a pontos de vista e experiências diferentes.
-- Aceitar feedback construtivo com elegância.
-- Focar no que é melhor para a comunidade e para a qualidade técnica do projeto.
-- Demonstrar empatia em relação aos outros membros da comunidade.
+Examples of behavior that contributes to a positive environment:
 
-Exemplos de comportamentos inaceitáveis:
+- Using welcoming and inclusive language.
+- Respecting differing viewpoints and experiences.
+- Giving and accepting constructive feedback gracefully.
+- Focusing on what is best for the community and the technical quality of the project.
+- Showing empathy toward other community members.
+- Crediting the work and context of others.
 
-- O uso de linguagem ou imagens sexualizadas e atenção sexual indesejada.
-- Comentários ofensivos, discriminatórios ou ataques pessoais.
-- Assédio público ou privado.
-- Publicar informações privadas de terceiros sem permissão explícita.
-- Qualquer conduta que possa ser razoavelmente considerada inadequada em um ambiente profissional.
+Examples of unacceptable behavior:
 
-## Aplicação e Responsabilidades
+- The use of sexualized language or imagery, and unwelcome sexual attention.
+- Offensive, discriminatory, or derogatory comments, and personal or political attacks.
+- Public or private harassment.
+- Publishing others' private information, such as a physical or email address, without explicit permission.
+- Deliberately submitting tests, scripts, or instructions that target systems without authorization.
+- Other conduct that could reasonably be considered inappropriate in a professional setting.
 
-Os mantenedores do projeto são responsáveis por esclarecer e fazer cumprir nossos padrões de comportamento aceitável e tomarão ações corretivas apropriadas e justas em resposta a qualquer comportamento considerado inadequado, ameaçador, ofensivo ou prejudicial.
+## Enforcement responsibilities
 
-## Relato de Violações
+Maintainers are responsible for clarifying and enforcing these standards. They will take appropriate and fair corrective action in response to any behavior they deem inappropriate, threatening, offensive, or harmful.
 
-Instâncias de comportamento abusivo, assédio ou qualquer conduta inaceitável podem ser relatadas entrando em contato diretamente com a equipe de mantenedores através do repositório oficial no GitHub. Todas as queixas serão analisadas e investigadas prontamente e de maneira confidencial.
+Maintainers have the right and responsibility to remove, edit, or reject comments, commits, code, issues, and other contributions that do not align with this Code of Conduct, and will communicate the reasons for moderation decisions when appropriate.
+
+## Scope
+
+This Code of Conduct applies in all project spaces, including the repository, issues, pull requests, discussions, and release channels. It also applies when an individual is officially representing the project in public spaces.
+
+## Reporting
+
+Instances of abusive, harassing, or otherwise unacceptable behavior may be reported privately to the maintainer through GitHub ([@felipevenas](https://github.com/felipevenas)). Do not open a public issue to report a conduct violation.
+
+All complaints will be reviewed and investigated promptly and fairly. The maintainer is obligated to respect the privacy and security of the reporter and will not disclose identifying information without consent, except when required by law or when necessary to protect others.
+
+## Enforcement guidelines
+
+Maintainers will follow these guidelines when determining consequences:
+
+1. **Correction** — a private warning explaining the violation and the expected behavior.
+2. **Warning** — a warning with consequences for continued behavior, including a defined period of no interaction with the people involved.
+3. **Temporary ban** — a temporary ban from any interaction with the project.
+4. **Permanent ban** — a permanent ban from public interaction with the project.
+
+The response will be proportionate to the severity, context, and history of the behavior.
+
+## Attribution
+
+This Code of Conduct is adapted from the [Contributor Covenant](https://www.contributor-covenant.org/), version 2.1, and tailored to this project.
