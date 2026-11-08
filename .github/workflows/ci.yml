@@ -10,7 +10,9 @@ jobs:
   test:
     name: Automated Tests (Python ${{ matrix.python-version }} on ${{ matrix.os }})
     runs-on: ${{ matrix.os }}
+    timeout-minutes: 15
     strategy:
+      fail-fast: false
       matrix:
         os: [ ubuntu-latest, windows-latest ]
         python-version: [ '3.10', '3.11', '3.12' ]
@@ -30,6 +32,30 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: Run Automated Test Suite
+      - name: Install Linux GUI Dependencies
+        if: runner.os == 'Linux'
         run: |
-          python -m unittest discover tests
+          sudo apt-get update
+          sudo apt-get install -y \
+            libegl1 \
+            libxkbcommon-x11-0 \
+            libxcb-cursor0 \
+            libxcb-icccm4 \
+            libxcb-image0 \
+            libxcb-keysyms1 \
+            libxcb-randr0 \
+            libxcb-render-util0 \
+            libxcb-shape0 \
+            libxcb-xinerama0 \
+            python3-tk \
+            xvfb
+
+      - name: Run Automated Test Suite (Linux)
+        if: runner.os == 'Linux'
+        env:
+          QT_QPA_PLATFORM: offscreen
+        run: xvfb-run -a python -m unittest discover tests
+
+      - name: Run Automated Test Suite (Windows)
+        if: runner.os != 'Linux'
+        run: python -m unittest discover tests

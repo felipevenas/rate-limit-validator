@@ -301,7 +301,7 @@ The current suite contains **17 tests** and passes locally on Python 3.11.9 with
 - `ubuntu-latest` and `windows-latest`;
 - Python `3.10`, `3.11`, and `3.12`.
 
-The workflow installs only [`requirements.txt`](requirements.txt), so the gate depends on PySide6 and the standard library. No linter, type checker, or coverage threshold is configured in CI. See [Known Limitations](#known-limitations-mvp-trade-offs) for headless Qt/Tk test considerations.
+The workflow installs only [`requirements.txt`](requirements.txt), so the gate depends on PySide6 and the standard library. Linux jobs install the Qt/Tk GUI libraries and run the suite under Xvfb with `QT_QPA_PLATFORM=offscreen`; Windows jobs run the same suite natively. No linter, type checker, or coverage threshold is configured in CI.
 
 ## Packaging and Release
 
@@ -378,8 +378,7 @@ These are deliberate boundaries of the current version, not hidden behavior.
 ### Continuous integration
 
 - The workflow installs runtime dependencies only; development tools such as pytest and pytest-cov are not part of the CI environment.
-- Qt widget tests create a real `QApplication`. The Ubuntu job neither sets `QT_QPA_PLATFORM=offscreen` nor starts Xvfb, so headless environments may need an explicit display strategy.
-- The legacy Tk test requires a working Tk installation and display; minimal Linux images may lack `python3-tk`.
+- Linux jobs install the Qt/Tk GUI libraries and run the suite under Xvfb with `QT_QPA_PLATFORM=offscreen`; Windows jobs run the same suite natively.
 - There is no lint, formatting, type-check, or coverage gate. Contributions are expected to pass the test suite and follow the architecture rules manually.
 
 ## Governance
