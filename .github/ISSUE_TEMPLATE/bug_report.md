@@ -1,32 +1,43 @@
 ---
-name: Relatório de Bug (Bug Report)
-about: Crie um relatório para nos ajudar a identificar e corrigir um problema
+name: Bug report
+about: Create a report to help identify and fix a problem
 title: '[BUG] '
 labels: bug
 assignees: ''
 ---
 
-## Descrição do Problema
-Uma descrição clara e concisa do que é o bug.
+## Problem description
 
-## Passos para Reproduzir
-1. Configure o endpoint para '...'
-2. Ajuste o total de requisições para '...'
-3. Defina a concorrência para '...'
-4. Clique em 'Iniciar Teste'
-5. Veja o erro ocorrido
+A clear and concise description of the bug.
 
-## Comportamento Esperado
-Uma descrição clara e concisa do que você esperava que acontecesse.
+## Steps to reproduce
 
-## Capturas de Tela / Evidências Visuais
-Se aplicável, adicione capturas de tela para ajudar a explicar o problema.
+1. Set the endpoint to `...`
+2. Set total requests to `...`
+3. Set concurrency to `...`
+4. Click **Iniciar Teste**
+5. Observe the error
 
-## Ambiente
-- **Sistema Operacional**: [ex: Windows 11, Ubuntu 22.04, macOS Sonoma]
-- **Versão do Python**: [ex: 3.11.8]
-- **Versão do PySide6**: [ex: 6.7.0]
-- **Forma de Execução**: [Código-fonte ou Executável .exe]
+## Expected behavior
 
-## Contexto Adicional
-Adicione qualquer outro contexto relevante sobre o problema aqui (ex: logs do terminal ou cabeçalhos da API testada).
+A clear and concise description of what you expected to happen.
+
+## Actual behavior
+
+What actually happened. Include the exact error message, status code, or unexpected metric.
+
+## Screenshots or evidence
+
+Add screenshots, logs, or a CSV excerpt when applicable. Redact tokens, cookies, internal hostnames, and customer data.
+
+## Environment
+
+- **Operating system:** [e.g. Windows 11, Ubuntu 24.04, macOS Sonoma]
+- **Python version:** [e.g. 3.11.9]
+- **PySide6 version:** [e.g. 6.11.2]
+- **How it was run:** [source `python main.py` or packaged `.exe`]
+- **Application version:** [e.g. 2.0.0]
+
+## Additional context
+
+Add any other context about the problem, such as target API behavior, whether the endpoint was authorized for testing, and whether the issue reproduces with a MockClienteHttp test.

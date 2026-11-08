@@ -1,37 +1,44 @@
-# Changelog 📋
+# Changelog
 
-Todas as alterações notáveis deste projeto serão documentadas neste arquivo.
+All notable changes to this project are documented in this file.
 
-O formato é baseado em [Keep a Changelog](https://keepachangelog.com/pt-BR/1.0.0/)
-e este projeto adere ao [Semantic Versioning](https://semver.org/lang/pt-BR/).
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to [Semantic Versioning](https://semver.org/).
 
----
+## [Unreleased]
+
+### Documentation
+
+- Standardized the README in English with verified stack, architecture, execution flow, configuration, testing, packaging, and limitation sections.
+- Translated and refreshed `CONTRIBUTING.md`, `SECURITY.md`, `CODE_OF_CONDUCT.md`, `CHANGELOG.md`, issue templates, and the pull-request template.
+- Translated workflow display names and label descriptions to English without changing workflow behavior.
+- Translated `.env.example` comments to English and documented that the file is a reference only, not loaded at runtime.
+- Removed documentation mojibake and normalized rewritten files to UTF-8.
 
 ## [2.0.0] - 2026-08-23
 
-### 🚀 Adicionado
-- **Migração Completa para PySide6 (Qt for Python)** com arquitetura limpa desacoplada.
-- **Design System Premium**: Suporte nativo e instantâneo a **Dark Mode (Minimalist Slate & Indigo)** e **Light Mode (Clean Light)**.
-- **Barra de Marca Executiva**: Logotipo minimalista vetorial SVG de alta definição (`app_icon.svg`) e indicador de status reativo no topo.
-- **Botões de Ajuda Interativos (?)**: Tooltips HTML ricas e caixas de diálogo explicativas para todos os parâmetros (Threads, Rate Limit 429, Timeout, Latência, RPS, etc.).
-- **Tabela em Tempo Real**:
-  - Inserção dinâmica a cada resposta recebida.
-  - Filtros rápidos por tipo (Todos, 2xx, 429, Erros).
-  - Busca textual em tempo real por ID, status HTTP e mensagens de erro.
-  - Ordenação dinâmica por clique no cabeçalho das colunas.
-- **Painel de Métricas Avançado**: Indicadores de progresso, sucessos 2xx, bloqueios 429, falhas, latência média e vazão RPS.
-- **Integração com a Bandeja do Sistema (System Tray)**:
-  - Ícone nativo na bandeja do Windows (`QSystemTrayIcon`).
-  - Menu de contexto (Restaurar, Alternar Tema, Sair).
-  - Notificações balão automáticas ao concluir baterias de testes.
-  - Registro de `SetCurrentProcessExplicitAppUserModelID` no Windows para exibição de ícone oficial na Barra de Tarefas e Alt+Tab.
-- **Exportação de Relatórios CSV**: Exportação estruturada com resumo estatístico e registros linha a linha.
-- **Esteira de CI/CD**: Workflow no GitHub Actions para execução de testes em matriz multiplataforma e compilação/publicação automática de executáveis Windows (`.exe`).
-- **Governança Multi-Agente**: Adicionado ecossistema completo em `.agents/` com 7 agentes especializados (`tech-lead`, `software-architect`, `backend-dev`, `frontend-dev`, `ux-ui-designer`, `qa-engineer`, `security-engineer`).
+### Added
 
----
+- **Complete migration to PySide6 (Qt for Python)** with a decoupled Clean Architecture.
+- **Premium design system** with instant **Dark Mode (Minimalist Slate & Indigo)** and **Light Mode (Clean Light)** themes.
+- **Executive brand bar** with a high-definition vector SVG logo (`app_icon.svg`) and a reactive status indicator.
+- **Interactive help buttons (`?`)** with rich HTML tooltips and explanatory dialogs for every parameter, including threads, 429 rate limits, timeout, latency, and RPS.
+- **Real-time request table**:
+  - Dynamic insertion for every received response.
+  - Quick filters for all requests, 2xx successes, 429 rate limits, and errors.
+  - Real-time text search by ID, HTTP status, and error message.
+  - Dynamic sorting by clicking a column header.
+- **Advanced metrics panel** with progress, 2xx successes, 429 blocks, failures, average latency, and effective RPS.
+- **System tray integration**:
+  - Native Windows tray icon (`QSystemTrayIcon`).
+  - Context menu to restore the window, switch themes, and exit.
+  - Automatic balloon notifications when a test suite completes.
+  - Windows `SetCurrentProcessExplicitAppUserModelID` registration for the taskbar and Alt+Tab icon.
+- **CSV report export** with aggregated statistics and one detail row per request.
+- **CI/CD pipeline** with a cross-platform GitHub Actions test matrix and automatic Windows executable build and publication.
+- **Multi-agent governance** with seven specialized role definitions under `.agents/` (`tech-lead`, `software-architect`, `backend-dev`, `frontend-dev`, `ux-ui-designer`, `qa-engineer`, `security-engineer`).
 
 ## [1.0.0] - 2026-08-22
 
-### 🚀 Versão Inicial
-- Versão inicial com core de testes de concorrência e detecção de políticas de Rate Limit.
+### Added
+
+- Initial release with the concurrency test core and rate-limit policy detection.

@@ -1,4 +1,4 @@
-name: Gerar Executavel e Release
+name: Build Executable and Release
 
 on:
   push:
@@ -11,33 +11,33 @@ jobs:
     runs-on: windows-latest
 
     steps:
-      - name: Baixar Código
+      - name: Checkout Code
         uses: actions/checkout@v4
 
-      - name: Configurar Python 3.11
+      - name: Set Up Python 3.11
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
           cache: 'pip'
 
-      - name: Instalar Dependências
+      - name: Install Dependencies
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
           pip install pyinstaller
 
-      - name: Gerar Ícones e Compilar Executável (.exe)
+      - name: Generate Icons and Build Windows Executable (.exe)
         run: |
           python scripts/gerar_icone_ico.py
           python scripts/build_executavel.py
 
-      - name: Publicar Artefato do Executável
+      - name: Upload Executable Artifact
         uses: actions/upload-artifact@v4
         with:
           name: ValidadorRateLimit-Windows
           path: dist/ValidadorRateLimit.exe
 
-      - name: Criar GitHub Release Automática
+      - name: Create Automated GitHub Release
         if: startsWith(github.ref, 'refs/tags/')
         uses: softprops/action-gh-release@v2
         with:
